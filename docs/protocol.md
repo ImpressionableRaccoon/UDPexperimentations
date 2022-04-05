@@ -5,6 +5,7 @@
 - 0x01 - sendSensorsData
 - 0x02 - setLEDColor
 - 0x03 - sendLocationData
+- 0x04 - sendBalance
 
 ## getMe (0x00)
 Клиент -> Сервер -> Клиент
@@ -60,6 +61,15 @@
 | LONGITUDE   |        4        |      Долгота      |   float    |                         |
 | ALTITUDE    |        4        |      Высота       |   int32    |                         |
 | ACCURACY    |        4        |     Точность      |   int32    |                         |
+## sendBalance (0x04)
+Клиент -> Сервер
+### Запрос к серверу
+| Поле        | Количество байт |     Название      | Тип данных |    Комментарий     |
+|-------------|:---------------:|:-----------------:|:----------:|:------------------:|
+| METHOD TYPE |        1        |    Тип метода     |    byte    | 0x04 - sendBalance |
+| DEVICE ID   |        2        |   ID устройства   |    int     |                    |
+| TOKEN       |       16        | Токен авторизации |   []byte   |                    |
+| BALANCE     |        4        |      Баланс       |   float    |                    |
 
 ## Коды ошибок
 401 - Unauthorized
